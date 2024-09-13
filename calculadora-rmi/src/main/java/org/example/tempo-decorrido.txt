@@ -1,0 +1,12 @@
+ | Linhas | Calculadora Local | Calculadora RMI |
+ | 1      | 0.072 segundos    | 0.074 segundos  |
+ | 2      | 0.061 segundos    | 0.044 segundos  |
+ | 3      | 0.094 segundos    | 0.056 segundos  |
+ | 4      | 0.052 segundos    | 0.049 segundos  |
+ | 5      | 0.054 segundos    | 0.042 segundos  |
+ | 6      | 0.063 segundos    | 0.046 segundos  |
+ | 7      | 0.059 segundos    | 0.056 segundos  |
+ | 8      | 0.056 segundos    | 0.047 segundos  |
+ | 9      | 0.063 segundos    | 0.049 segundos  |
+ | 10     | 0.062 segundos    | 0.043 segundos  |
+ | Média  | 0.0594 segundos   | 0.0462 segundos |
