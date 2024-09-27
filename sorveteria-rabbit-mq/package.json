@@ -1,0 +1,23 @@
+{
+  "name": "sorveteria-rabbit-mq",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:producer": "cls&ts-node ./src/producer/index.ts",
+    "start:producer-interested": "cls&ts-node ./src/producer-interested/index.ts",
+    "start:consumer": "cls&ts-node ./src/consumer/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "amqplib": "^0.10.4",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.5",
+    "@types/node": "^22.7.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}
