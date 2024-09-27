@@ -1,0 +1,43 @@
+@startuml
+!define RECTANGLE rectangle
+!define QUEUE queue
+
+title C4 Model - Container Diagram (C2)
+
+RECTANGLE SistemaPedido as System {
+  RECTANGLE "Aplicativo de Pedido" as Produtor
+  RECTANGLE "RabbitMQ Broker" as RabbitMQ {
+    RECTANGLE Exchange as "Exchange 'restaurante-eduardo'"
+    QUEUE FilaPizza as "Fila 'pizza_queue'"
+    QUEUE FilaHamburguer as "Fila 'hamburguer_queue'"
+    QUEUE FilaSushi as "Fila 'sushi_queue'"
+    QUEUE FilaSalada as "Fila 'salada_queue'"
+    QUEUE FilaTacos as "Fila 'tacos_queue'"
+  }
+  RECTANGLE "Cozinha Pizza" as CozinhaPizza
+  RECTANGLE "Cozinha Hamburguer" as CozinhaHamburguer
+  RECTANGLE "Cozinha Sushi" as CozinhaSushi
+  RECTANGLE "Cozinha Salada" as CozinhaSalada
+  RECTANGLE "Cozinha Tacos" as CozinhaTacos
+}
+
+Produtor -> Exchange : Publica pedidos com routingKey
+Exchange -> FilaPizza : Roteia "pedido.pizza"
+Exchange -> FilaHamburguer : Roteia "pedido.hamburguer"
+Exchange -> FilaSushi : Roteia "pedido.sushi"
+Exchange -> FilaSalada : Roteia "pedido.salada"
+Exchange -> FilaTacos : Roteia "pedido.tacos"
+
+FilaPizza -> CozinhaPizza : Entrega pedido
+FilaHamburguer -> CozinhaHamburguer : Entrega pedido
+FilaSushi -> CozinhaSushi : Entrega pedido
+FilaSalada -> CozinhaSalada : Entrega pedido
+FilaTacos -> CozinhaTacos : Entrega pedido
+
+CozinhaPizza -> Produtor : Notifica finalização
+CozinhaHamburguer -> Produtor : Notifica finalização
+CozinhaSushi -> Produtor : Notifica finalização
+CozinhaSalada -> Produtor : Notifica finalização
+CozinhaTacos -> Produtor : Notifica finalização
+
+@enduml
