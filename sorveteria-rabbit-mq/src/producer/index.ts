@@ -13,10 +13,10 @@ async function start() {
   await customer3.initial();
   await customer4.initial();
 
-  await customer1.createOrders(2);
-  await customer2.createOrders(3);
-  await customer3.createOrders(5);
-  await customer4.createOrders(4);
+  await customer1.createOrders(4);
+  await customer2.createOrders(6);
+  await customer3.createOrders(8);
+  await customer4.createOrders(9);
 }
 
 start();

@@ -27,7 +27,12 @@ export class Customer {
     try {
       message = `${this.name} - ${message}`;
 
-      this.channel.sendToQueue(this.queue, Buffer.from(message));
+      await new Promise((resolve) => {
+        setTimeout(() => {
+          resolve("");
+          this.channel.sendToQueue(this.queue, Buffer.from(message));
+        }, 100);
+      });
 
       console.log(`[x] ${message}`);
     } catch (error) {
@@ -54,7 +59,7 @@ export class Customer {
   }
 
   async createOrders(quantity: number) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < quantity; i++) {
       const { quantity, flavor } = this.generateOrder();
 
       await this.sendMessage(`${quantity} ${flavor}`);
